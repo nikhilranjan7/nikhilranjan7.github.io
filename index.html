@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nikhil Ranjan</title>
+<meta name="description" content="Nikhil Ranjan builds the text that language models learn from. Senior AI Engineer at MBZUAI Institute of Foundation Models; data lead for Jais and LLM360; built TxT360 and MegaMath.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="canonical" href="https://nikhilranjan7.github.io/">
+<meta property="og:title" content="Nikhil Ranjan">
+<meta property="og:description" content="I build the text that language models learn from. TxT360 and MegaMath, now inside Switzerland's and Norway's national models, Olmo 3, and AMD, Microsoft, NVIDIA, ByteDance and Alibaba training runs.">
+<meta property="og:image" content="https://nikhilranjan7.github.io/images/hero.jpg">
+<meta property="og:url" content="https://nikhilranjan7.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Nikhil Ranjan","jobTitle":"Senior AI Engineer","worksFor":{"@type":"Organization","name":"MBZUAI Institute of Foundation Models"},"url":"https://nikhilranjan7.github.io/","sameAs":["https://scholar.google.com/citations?user=Pzh2GTEAAAAJ","https://github.com/nikhilranjan7","https://www.linkedin.com/in/nikhilranjan7/","https://x.com/nikhilranjan7","https://huggingface.co/IFM"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#0A0C12; --bg2:#0F1219; --paper:#12151E; --ink:#E9EBF2; --ink2:#AEB4C4; --ink3:#6F7789; --line:#222735; --line2:#2C3346;
+  --accent:#5B8CFF; --accent-soft:#16224A; --n1:#5B8CFF; --n2:#F2A65A; --glow:rgba(91,140,255,.35);
+  --display:"Syne",system-ui,sans-serif; --sans:"Source Sans 3",system-ui,-apple-system,sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: light){
+  :root{ --bg:#F3F4F8; --bg2:#EDEFF5; --paper:#FFFFFF; --ink:#0F1220; --ink2:#454B5C; --ink3:#7C8396; --line:#D9DDE8; --line2:#C9CEDC; --accent:#2B5BE3; --accent-soft:#E2E9FF; --n1:#2B5BE3; --n2:#C5741E; --glow:rgba(43,91,227,.18); }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;padding:0 24px 80px;position:relative;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;opacity:.28;
+  -webkit-mask-image:radial-gradient(ellipse 70% 55% at 50% 0%,#000 20%,transparent 100%);mask-image:radial-gradient(ellipse 70% 55% at 50% 0%,#000 20%,transparent 100%)}
+#field{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55}
+.wrap{max-width:1040px;margin:0 auto;position:relative;z-index:1}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0 0;font-size:13px;color:var(--ink2);font-family:var(--mono);letter-spacing:.02em}
+.top nav{display:flex;gap:18px;flex-wrap:wrap}
+.top nav a{color:var(--ink2)}
+.top nav a:hover{color:var(--accent);text-decoration:none}
+
+.hero{padding:64px 0 20px;display:grid;grid-template-columns:1.25fr .9fr;gap:8px;align-items:center;overflow:visible}
+.hero .tag{font-family:var(--mono);font-size:12.5px;color:var(--accent);letter-spacing:.06em;margin:0 0 18px}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(38px,6.2vw,68px);line-height:1.0;letter-spacing:-.025em;margin:0 0 20px;text-wrap:balance;max-width:14ch}
+.hero h1 em{font-style:normal;color:var(--accent);text-shadow:0 0 28px var(--glow)}
+.hero .who{font-size:18px;color:var(--ink2);max-width:58ch;margin:0 0 6px}
+.hero .who b{color:var(--ink);font-weight:600}
+.hero .about{font-size:16px;color:var(--ink3);max-width:60ch;margin:0}
+.hero img{width:400px;height:520px;object-fit:cover;object-position:60% 30%;border:0;justify-self:end;align-self:center;margin:-40px -60px -60px 0;
+  -webkit-mask-image:radial-gradient(ellipse 62% 66% at 58% 44%,#000 38%,rgba(0,0,0,.55) 66%,transparent 100%);mask-image:radial-gradient(ellipse 62% 66% at 58% 44%,#000 38%,rgba(0,0,0,.55) 66%,transparent 100%);
+  filter:saturate(.9) contrast(1.05)}
+.links{display:flex;flex-wrap:wrap;gap:8px 10px;font-size:14px;margin:22px 0 0}
+.links a{border:1px solid var(--line2);padding:5px 11px;border-radius:999px;color:var(--ink2);background:var(--bg2);transition:border-color .15s,color .15s,box-shadow .15s}
+.links a:hover{text-decoration:none;border-color:var(--accent);color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+
+.ledger{display:grid;grid-template-columns:repeat(4,1fr);margin:34px 0 0;border:1px solid var(--line);background:linear-gradient(180deg,var(--paper),var(--bg2));border-radius:4px;overflow:hidden}
+.ledger div{padding:18px 18px 16px;border-right:1px solid var(--line)}
+.ledger div:last-child{border-right:0}
+.ledger b{display:block;font-family:var(--mono);font-weight:500;font-size:30px;letter-spacing:-.02em;line-height:1;margin-bottom:8px;font-variant-numeric:tabular-nums;color:var(--ink)}
+.ledger b a{color:var(--ink)}.ledger b a:hover{color:var(--accent);text-decoration:none}
+.ledger span{font-size:13.5px;color:var(--ink2);line-height:1.35;display:block}
+.ledger small{display:block;color:var(--ink3);font-size:11.5px;margin-top:8px;font-family:var(--mono)}
+
+h2{font-family:var(--display);font-weight:600;font-size:26px;letter-spacing:-.02em;margin:72px 0 6px;line-height:1.15;display:flex;align-items:center;gap:12px}
+h2::before{content:"";width:22px;height:2px;background:var(--accent);box-shadow:0 0 12px var(--glow)}
+.h2sub{color:var(--ink2);margin:0 0 22px;max-width:70ch;font-size:15.5px}
+
+.lineage{position:relative;background:linear-gradient(180deg,var(--paper),var(--bg2));border:1px solid var(--line);border-radius:4px;padding:18px 18px 8px}
+.lineage svg{width:100%;height:auto;display:block;font-family:var(--sans)}
+.lineage .node{cursor:pointer}
+.lineage .node rect{fill:var(--bg2);stroke:var(--line2);stroke-width:1;transition:stroke .15s,fill .15s}
+.lineage .node:hover rect,.lineage .node:focus rect,.lineage .node.on rect{stroke:var(--accent);fill:var(--paper)}
+.lineage .node:focus{outline:none}
+.lineage .node text{fill:var(--ink);font-size:14px;font-weight:600}
+.lineage .node .org{fill:var(--ink3);font-weight:400;font-size:12px}
+.lineage .src rect{stroke:var(--ink3);stroke-width:1.2}
+.lineage .src text{font-family:var(--mono);font-weight:500;font-size:15px}
+.lineage path.edge{fill:none;stroke-width:1.6;stroke-dasharray:6 8;animation:flow 2.4s linear infinite;transition:opacity .15s,stroke-width .15s}
+.lineage path.edge.a{stroke:var(--n1);opacity:.5}
+.lineage path.edge.b{stroke:var(--n2);opacity:.5}
+.lineage.hover path.edge{opacity:.1}
+.lineage.hover path.edge.on{opacity:1;stroke-width:2.4;filter:drop-shadow(0 0 4px var(--glow))}
+.lineage.hover .node{opacity:.35}
+.lineage.hover .node.on{opacity:1}
+.lineage .node,.lineage path.edge{transition:opacity .15s}
+@keyframes flow{to{stroke-dashoffset:-28}}
+.quote{min-height:64px;margin:10px 0 6px;padding:12px 14px;border-left:2px solid var(--accent);background:var(--bg);font-size:15px;color:var(--ink2);border-radius:0 3px 3px 0}
+.quote b{color:var(--ink);font-weight:600}
+.quote .k{font-family:var(--mono);font-size:12px;color:var(--ink3);display:block;margin-top:4px}
+.lineage-list{display:none;list-style:none;padding:0;margin:0}
+.lineage-list li{padding:10px 0;border-top:1px solid var(--line);font-size:15px}
+.lineage-list li b{display:block}
+.lineage-list li span{color:var(--ink2)}
+.lineage-list li .k{font-family:var(--mono);font-size:12px;color:var(--ink3)}
+
+.work{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:22px 24px;display:flex;flex-direction:column;gap:8px;transition:transform .2s,border-color .2s,box-shadow .2s}
+.card::before{content:"";position:absolute;inset:0;border-radius:4px;padding:1px;background:linear-gradient(135deg,var(--accent),transparent 45%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.5;pointer-events:none}
+.card:hover{transform:translateY(-2px);box-shadow:0 12px 40px -20px var(--glow);border-color:var(--line2)}
+.card h3{font-family:var(--display);font-weight:600;font-size:21px;margin:0;letter-spacing:-.015em}
+.card h3 a{color:var(--ink)}
+.card .k{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.02em}
+.card p{margin:0;color:var(--ink2);font-size:15.5px}
+.card .l{margin-top:auto;padding-top:8px;font-size:14px;display:flex;gap:16px;flex-wrap:wrap}
+
+.rows{border-top:1px solid var(--line2)}
+.row{display:grid;grid-template-columns:170px 1fr;gap:18px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.row .k{font-family:var(--mono);font-size:12px;color:var(--ink3);padding-top:4px;letter-spacing:.02em}
+.row b{font-weight:600}
+.row span{color:var(--ink2)}
+.row em{font-style:normal;color:var(--accent)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.two h2{margin-top:64px}
+
+footer{margin-top:80px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink3);font-size:12.5px;font-family:var(--mono);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+
+
+.reach{background:linear-gradient(180deg,var(--paper),var(--bg2));border:1px solid var(--line);border-radius:4px;padding:10px 12px 6px;overflow:hidden}
+.reach svg{width:100%;height:auto;display:block}
+.reach .grat{stroke:var(--line);stroke-width:1;fill:none}
+.reach .grat.eq{stroke:var(--line2)}
+.reach .arc{fill:none;stroke:var(--accent);stroke-width:1.2;opacity:.45}
+.reach .arc.b{stroke:var(--n2)}
+.reach .pt{fill:var(--accent)}
+.reach .pt.b{fill:var(--n2)}
+.reach .halo{fill:var(--accent);opacity:.18;animation:halo 2.8s ease-out infinite}
+.reach .halo.b{fill:var(--n2)}
+@keyframes halo{0%{r:4;opacity:.35}100%{r:22;opacity:0}}
+.reach .origin{fill:var(--ink)}
+.reach text{font-family:var(--mono);font-size:11px;fill:var(--ink2)}
+.reach text.o{fill:var(--ink);font-weight:500}
+.reach .pulse{fill:var(--ink);opacity:.9}
+@media (max-width:760px){.reach text{font-size:14px}}
+/* spotlight */
+#spot{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(600px circle at var(--mx,-999px) var(--my,-999px),var(--glow),transparent 60%);opacity:.35}
+/* ticker */
+.ticker{margin:18px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;font-family:var(--mono);font-size:12.5px;color:var(--ink3);letter-spacing:.04em;position:relative}
+.ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:80px;z-index:1;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.ticker::after{right:0;background:linear-gradient(270deg,var(--bg),transparent)}
+.ticker .t{display:inline-block;padding:9px 0;animation:tick 48s linear infinite}
+.ticker .t span{margin:0 28px 0 0}
+.ticker .t span::after{content:"\00B7";margin-left:28px;color:var(--line2)}
+.ticker .t b{color:var(--ink2);font-weight:500}
+@keyframes tick{to{transform:translateX(-50%)}}
+/* section numbers */
+h2 .num{font-family:var(--mono);font-size:12px;color:var(--ink3);letter-spacing:.08em;font-weight:400;margin-left:auto}
+/* reveals */
+.js .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+/* edge particles */
+.lineage circle.p{fill:var(--n1);opacity:.9;filter:drop-shadow(0 0 3px var(--glow))}
+.lineage circle.p.b{fill:var(--n2)}
+.lineage.hover circle.p{opacity:.15}
+.lineage.hover circle.p.on{opacity:1}
+/* photo tilt */
+.hero img{transition:transform .25s ease-out;will-change:transform}
+/* headline reveal */
+.js .hero h1 .w{display:inline-block;opacity:0;transform:translateY(.35em);animation:wup .7s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes wup{to{opacity:1;transform:none}}
+
+@media (max-width:760px){
+  body{padding:0 18px 60px}
+  .top{font-size:12px}
+  .top>span{white-space:nowrap}
+  .top nav{gap:12px}
+  .hero{grid-template-columns:1fr;gap:6px;padding-top:28px}
+  .hero img{justify-self:stretch;width:calc(100% + 36px);height:340px;margin:0 -18px -70px -18px;order:-1;object-position:62% 22%;
+    -webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 25%,#000 100%);-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(180deg,#000 55%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 25%,#000 100%);mask-composite:intersect;transform:none!important}
+  .hero .tag{margin-top:0}
+  .ticker .t{animation-duration:36s}
+  .ledger{grid-template-columns:1fr 1fr}
+  .ledger div:nth-child(2){border-right:0}
+  .ledger div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .lineage svg,.quote{display:none}
+  .lineage-list{display:block}
+  .work,.two{grid-template-columns:1fr;gap:16px}
+  .row{grid-template-columns:1fr;gap:2px}
+  h2{font-size:23px;margin-top:52px}
+}
+@media print{
+  :root{--bg:#fff;--bg2:#fff;--paper:#fff;--ink:#000;--ink2:#333;--ink3:#666;--line:#ccc;--line2:#bbb;--accent:#1E3FBF;--glow:transparent}
+  #field,#spot,.ticker,.top nav,body::before{display:none!important}
+  .hero img{-webkit-mask-image:none;mask-image:none;width:160px;height:210px;margin:0;filter:none}
+  .card,.lineage,.ledger{break-inside:avoid;box-shadow:none}
+  a{color:#000}
+  .lineage svg,.quote{display:none}.lineage-list{display:block}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}#field,#spot{display:none}.js .rv{opacity:1;transform:none}.js .hero h1 .w{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="field" aria-hidden="true"></canvas>
+<div id="spot" aria-hidden="true"></div>
+<div class="wrap">
+
+<div class="top">
+  <span>Nikhil Ranjan</span>
+  <nav><a href="#reach">Reach</a><a href="#lineage">Lineage</a><a href="#work">Work</a><a href="#papers">Papers</a><a href="#road">Journey</a><a href="#press">Press</a><a href="resume.pdf">CV</a></nav>
+</div>
+
+<header class="hero">
+  <div>
+    <p class="tag">// the data behind open foundation models · MBZUAI IFM · Abu Dhabi</p>
+    <h1>I build the text that <em>language models</em> learn from.</h1>
+    <p class="who"><b>Senior AI Engineer, MBZUAI Institute of Foundation Models, Abu Dhabi.</b> Data lead for the Jais and LLM360 model families across multilingual pretraining, SFT and RL data.</p>
+    <p class="about">I grew up in Muzaffarpur, Bihar, studied at BITS Pilani, and worked in Helsinki and Singapore before Abu Dhabi. The two datasets I am best known for, TxT360 and MegaMath, were given away free and now sit inside other people's national models.</p>
+    <div class="links">
+      <a href="resume.pdf">CV (PDF)</a>
+      <a href="https://scholar.google.com/citations?user=Pzh2GTEAAAAJ">Google Scholar</a>
+      <a href="https://huggingface.co/IFM">Hugging Face</a>
+      <a href="https://github.com/nikhilranjan7">GitHub</a>
+      <a href="https://www.linkedin.com/in/nikhilranjan7/">LinkedIn</a>
+      <a href="https://x.com/nikhilranjan7">X</a>
+      <a href="#" id="em" rel="nofollow">Email</a>
+    </div>
+  </div>
+  <img src="images/hero.jpg" alt="Nikhil Ranjan at Yas Marina Circuit, Abu Dhabi">
+</header>
+
+<div class="rv ledger">
+  <div><b><a href="https://huggingface.co/spaces/LLM360/TxT360">15T+</a></b><span>tokens in TxT360, the first globally deduplicated corpus at that scale</span></div>
+  <div><b><a href="https://arxiv.org/abs/2504.02807">371B</a></b><span>tokens in MegaMath, the largest open mathematical pretraining corpus</span></div>
+  <div><b><a href="https://huggingface.co/datasets/LLM360/TxT360">3.3M</a></b><span>downloads of TxT360, fifth most downloaded open pretraining corpus on Hugging Face</span><small>as of Sep 2026</small></div>
+  <div><b><a href="https://huggingface.co/models?other=dataset:LLM360/MegaMath">98</a></b><span>publicly released models trained on the two corpora, counted from model metadata</span><small>as of Sep 2026</small></div>
+</div>
+
+<h2 id="reach">Reach <span class="num">01</span></h2>
+<p class="h2sub">Built in Abu Dhabi. Trained on in Switzerland, Norway, France, the United States and China.</p>
+<div class="reach rv"><svg id="map" viewBox="0 0 1000 360" role="img" aria-label="Map of organisations that trained on the datasets, with arcs from Abu Dhabi"></svg></div>
+<div class="ticker" aria-label="Trained on this data"><div class="t"><span><b>Trained on this data</b></span><span>Apertus, Switzerland</span><span>Instella-MoE, AMD</span><span>Olmo 3, Allen Institute for AI</span><span>Thinking Augmented Pre-training, Microsoft Research</span><span>Nemotron-CC-Math, NVIDIA</span><span>Ouro, ByteDance Seed</span><span>Marco-MoE, Alibaba</span><span>NorOLMo and FinOLMo, University of Oslo</span><span>Gaperon, Inria</span><span>98 models on Hugging Face</span><span><b>Trained on this data</b></span><span>Apertus, Switzerland</span><span>Instella-MoE, AMD</span><span>Olmo 3, Allen Institute for AI</span><span>Thinking Augmented Pre-training, Microsoft Research</span><span>Nemotron-CC-Math, NVIDIA</span><span>Ouro, ByteDance Seed</span><span>Marco-MoE, Alibaba</span><span>NorOLMo and FinOLMo, University of Oslo</span><span>Gaperon, Inria</span><span>98 models on Hugging Face</span></div></div>
+
+<h2 id="lineage">Lineage <span class="num">02</span></h2>
+<p class="h2sub">Who trained on the data, in their own papers and model cards. Hover a model to read the line where they say so. <span style="color:var(--n1)">Blue</span> edges are MegaMath, <span style="color:var(--n2)">orange</span> are TxT360. Hugging Face lists <a href="https://huggingface.co/models?other=dataset:LLM360/MegaMath">57 more models on MegaMath</a> and <a href="https://huggingface.co/models?other=dataset:LLM360/TxT360">41 on TxT360</a>.</p>
+<div class="rv lineage" id="lin">
+  <svg viewBox="0 0 980 520" role="img" aria-label="Provenance graph from TxT360 and MegaMath to the models trained on them"></svg>
+  <div class="quote" id="q"><b>Apertus</b>, ETH Zurich and EPFL: MegaMath in the pretraining mixture of every generation; its lead confirms it in writing. <span class="k">arXiv 2509.14233</span></div>
+  <ul class="lineage-list" id="linlist"></ul>
+</div>
+
+<h2 id="work">Work <span class="num">03</span></h2>
+<p class="h2sub">Four releases from the LLM360 programme at MBZUAI IFM. All four are fully open: data, weights, checkpoints and code.</p>
+<div class="rv work">
+  <div class="card">
+    <h3><a href="https://huggingface.co/datasets/LLM360/TxT360">TxT360</a></h3>
+    <span class="k">Oct 2024 · 15T+ tokens · #1 trending dataset on Hugging Face for several weeks</span>
+    <p>99 Common Crawl snapshots and 14 curated sources (Wikipedia, arXiv, PubMed, StackExchange, legal and government text, among others) deduplicated globally, so every document appears once across the whole corpus rather than once per source. The duplicate counts are kept as metadata, which is what lets a training run upweight the text that matters instead of guessing. Released with the weighting recipe. The fifth most downloaded open pretraining corpus on Hugging Face, ahead of EleutherAI, the Allen Institute and NVIDIA, the basis of Gaperon's English data at Inria, and part of the 7.1T-token pretraining corpus of AMD's Instella-MoE.</p>
+    <div class="l"><a href="https://huggingface.co/spaces/LLM360/TxT360">Technical report</a><a href="https://huggingface.co/datasets/LLM360/TxT360">Dataset</a></div>
+  </div>
+  <div class="card">
+    <h3><a href="https://huggingface.co/datasets/LLM360/MegaMath">MegaMath</a></h3>
+    <span class="k">Apr 2025 · 371B tokens · COLM 2025</span>
+    <p>Mathematical text is a sliver of the web and standard extractors destroy it. MegaMath re-extracts math documents from Common Crawl with math-aware processing, recovers mathematical code, and adds synthetic data. The most downloaded open math corpus.</p>
+    <div class="l"><a href="https://arxiv.org/abs/2504.02807">Paper</a><a href="https://huggingface.co/datasets/LLM360/MegaMath">Dataset</a></div>
+  </div>
+  <div class="card">
+    <h3><a href="https://huggingface.co/collections/LLM360/k2-v2">K2 and K2-V2</a></h3>
+    <span class="k">2025 · 65B and 70B · 360-open</span>
+    <p>Fully open language models released with complete training data and training history. I built the pretraining data behind both. K2-V2 outperforms Qwen2.5-72B.</p>
+    <div class="l"><a href="https://arxiv.org/abs/2501.07124">K2 paper</a><a href="https://arxiv.org/abs/2512.06201">K2-V2 paper</a><a href="https://huggingface.co/LLM360/K2">Model</a></div>
+  </div>
+  <div class="card">
+    <h3><a href="https://www.llm360.ai/">LLM360</a></h3>
+    <span class="k">2023 onward · COLM 2024</span>
+    <p>The transparent open-model initiative at MBZUAI IFM. Everything a model needs to be reproduced, released together.</p>
+    <div class="l"><a href="https://arxiv.org/abs/2312.06550">Paper</a><a href="https://www.llm360.ai/">Project</a></div>
+  </div>
+</div>
+
+<div class="rv two">
+  <div>
+    <h2 id="papers">Papers and patent <span class="num">04</span></h2>
+    <div class="rows">
+      <div class="row"><span class="k">COLM 2026 workshop</span><span><a href="https://openreview.net/forum?id=cHPJ1wCLtx">Ignorance Is Shared, Knowledge Is Private: Efficiently Mapping Knowledge Boundaries</a>. Workshop on Efficient Reasoning.</span></div>
+      <div class="row"><span class="k">COLM 2026 workshop</span><span><a href="https://openreview.net/forum?id=ali6mfCRJl">Minimum Sufficient Reasoning: How Much Chain-of-Thought Does Training Data Need?</a> Workshop on Efficient Reasoning.</span></div>
+      <div class="row"><span class="k">COLM 2026 workshop</span><span><a href="https://openreview.net/forum?id=EEauqNZYov">Safety Lost in Translation: Usable Yield and the Cost of Thinking in Safety-Data Localization</a>. Workshop on Efficient Reasoning.</span></div>
+      <div class="row"><span class="k">COLM 2025</span><span><a href="https://arxiv.org/abs/2504.02807">MegaMath: Pushing the Limits of Open Math Corpora</a></span></div>
+      <div class="row"><span class="k">COLM 2024</span><span><a href="https://arxiv.org/abs/2312.06550">LLM360: Towards Fully Transparent Open-Source LLMs</a></span></div>
+      <div class="row"><span class="k">2025</span><span><a href="https://arxiv.org/abs/2512.06201">K2-V2: A 360-Open, Reasoning-Enhanced LLM</a></span></div>
+      <div class="row"><span class="k">2025</span><span><a href="https://arxiv.org/abs/2501.07124">LLM360 K2: Building a 65B 360-Open-Source LLM from Scratch</a></span></div>
+      <div class="row"><span class="k">2024</span><span><a href="https://huggingface.co/spaces/LLM360/TxT360">TxT360: Trillion Extracted Text</a>, technical report</span></div>
+      <div class="row"><span class="k">J. Phys. Chem. C 2024</span><span><a href="https://doi.org/10.1021/acs.jpcc.4c01974">MagBERT: a magnetics knowledge-aware language model with a question answering pipeline for Curie temperature extraction</a>. Journal of Physical Chemistry C 128 (31).</span></div>
+      <div class="row"><span class="k">Patent</span><span><a href="https://patents.google.com/patent/FI20206334A1/en">FI20206334</a>, chat intent recognition for agglutinative languages, Elisa Oyj. Named inventor.</span></div>
+    </div>
+  </div>
+  <div>
+    <h2 id="service">Reviewing and awards <span class="num">05</span></h2>
+    <div class="rows">
+      <div class="row"><span class="k">2026</span><span><b>Reviewer</b>, NeurIPS 2026 workshop</span></div>
+      <div class="row"><span class="k">2026</span><span><b>Reviewer</b>, FLLM, IEEE</span></div>
+      <div class="row"><span class="k">2019</span><span><b>Winner</b>, Hack Junction, Helsinki, the largest hackathon in Europe</span></div>
+      <div class="row"><span class="k">2018</span><span><b>Runner-up</b>, Hack Moscow</span></div>
+      <div class="row"><span class="k">2015</span><span><b>INSPIRE Scholarship</b>, Government of India, top 1 percent nationally</span></div>
+    </div>
+  </div>
+</div>
+
+<h2 id="road">Journey <span class="num">06</span></h2>
+<p class="h2sub">Newest first. From the data behind national models back to a CBSE school in Muzaffarpur.</p>
+<div class="rows rv">
+  <div class="row"><span class="k">2022 to now</span><span><b>MBZUAI Institute of Foundation Models</b>, Abu Dhabi. Senior AI Engineer and <em>data lead for Jais and LLM360</em>. Built TxT360 and MegaMath, and the pretraining data behind K2 and K2-V2, now inside <em>national models on two continents</em>.</span></div>
+  <div class="row"><span class="k">2021 to 2022</span><span><b>ByteDance / TikTok</b>, Singapore. Machine learning engineer. Shipped the Match feature in the live video recommendation system, <em>TikTok's highest-revenue product</em>.</span></div>
+  <div class="row"><span class="k">2019 to 2021</span><span><b>Elisa Oyj and FCAI</b>, Helsinki. Senior research engineer. Built Finnish speech recognition with Aalto University: <em>the best published Finnish word error rate at the time</em>, across open and telecom customer-service benchmarks, ahead of Google's and Microsoft's commercial systems. <em>Named inventor on patent FI20206334</em>. Research with Intel Labs.</span></div>
+  <div class="row"><span class="k">2018 to 2019</span><span><b>Research in Singapore</b>. Hit-song prediction at SUTD with Dorien Herremans, <em>deployed as a product</em>; named entity recognition at NTU with Erik Cambria, <em>adopted by SenticNet</em> in its commercial products.</span></div>
+  <div class="row"><span class="k">2015 to 2020</span><span><b>BITS Pilani</b>, dual degree: M.Sc. (Hons.) Biological Sciences and B.E. (Hons.) Computer Science. Chose Pilani over the IITs for its <em>entrepreneurial culture and international exposure</em>. <em>Class topper by the second year</em>, taking the postgraduate machine learning courses as an undergraduate, and a research assistant in the AI lab on speech synthesis for Hindi dialects. <em>Finished the coursework of a five-year degree in three</em>, and spent the last two years in full-time research and industry roles in Singapore and Helsinki while completing the degree in 2020.</span></div>
+  <div class="row"><span class="k">2015</span><span><b>DAV, Muzaffarpur</b>, CBSE Class 12. <em>Top 1 percent of India</em> in the board examinations, which brought the <em>INSPIRE Scholarship</em> from the Government of India, awarded to the top 1 percentile nationally. It is where the name of the scholarship became the plan.</span></div>
+</div>
+
+<h2 id="press">Press <span class="num">07</span></h2>
+<div class="rows rv">
+  <div class="row"><span class="k">Oct 2024</span><span><a href="https://www.marktechpost.com/2024/10/08/llm360-group-introduces-txt360-a-top-quality-llm-pre-training-dataset-with-15t-tokens/">MarkTechPost: LLM360 Group Introduces TxT360, a 15T-token pretraining dataset</a></span></div>
+  <div class="row"><span class="k">Jun 2020</span><span><a href="https://fcai.fi/news/2020/6/15/fcai-and-elisa-make-great-strides-in-developing-finnish-speech-recognition-applications">FCAI: FCAI and Elisa make great strides in developing Finnish speech recognition applications</a></span></div>
+  <div class="row"><span class="k">2020</span><span><a href="https://corporate.elisa.fi/uutishuone/tiedotteet/uutinen/elisan-kehittämä-suomen-kielen-puheentunnistus-parantaa-asiakaspalvelua/19449735851998">Elisa: Finnish speech recognition developed by Elisa improves customer service</a> (in Finnish)</span></div>
+</div>
+
+<footer><span>Nikhil Ranjan, Abu Dhabi</span><span>Updated September 2026</span></footer>
+</div>
+
+<script>
+(function(){
+  var nodes=[
+    {name:'Apertus',org:'ETH Zurich and EPFL, Switzerland',srcs:['MegaMath'],q:'MegaMath in the pretraining mixture of every generation; the Apertus lead confirms it in writing.',k:'arXiv 2509.14233',url:'https://arxiv.org/abs/2509.14233'},
+    {name:'Instella-MoE',org:'AMD',srcs:['MegaMath','TxT360'],q:'"The corpus includes sources such as Nemotron-CC-v2 for web data, Nemotron-CC-Math-v1, MegaMath, FineMath for mathematics ... and TxT360 for other domains." A 16B model pretrained on 7.1T tokens.',k:'rocm.blogs.amd.com, Aug 2026',url:'https://rocm.blogs.amd.com/artificial-intelligence/instella-moe/README.html'},
+    {name:'Olmo 3',org:'Allen Institute for AI',srcs:['MegaMath'],q:'"We collect the Megamath-Web-Pro data occurring after June 2023, apply filtering as in Megamath-Web-Pro-Max, and rewrite it using Qwen3."',k:'arXiv 2512.13961',url:'https://arxiv.org/abs/2512.13961'},
+    {name:'Thinking Augmented Pre-training',org:'Microsoft Research',srcs:['MegaMath'],q:'"For all experiments, our training corpora consist of MegaMath-Web-Pro-Max and FineWeb-Edu."',k:'arXiv 2509.20186',url:'https://arxiv.org/abs/2509.20186'},
+    {name:'Nemotron-CC-Math',org:'NVIDIA',srcs:['MegaMath'],q:'"We extract math-related URLs using curated datasets (e.g., MegaMath, FineMath)." Benchmarked against MegaMath.',k:'arXiv 2508.15096',url:'https://arxiv.org/abs/2508.15096'},
+    {name:'Ouro',org:'ByteDance Seed',srcs:['MegaMath'],q:'MegaMath-web is 4.1 percent of the 6T-token Stage 1 corpus; the high-quality split returns in continual training.',k:'arXiv 2510.25741',url:'https://arxiv.org/abs/2510.25741'},
+    {name:'Marco-MoE',org:'Alibaba International',srcs:['MegaMath'],q:'megamath-web-pro, megamath-qa and megamath-text-code-block in the mid-training mixture.',k:'arXiv 2604.25578',url:'https://arxiv.org/abs/2604.25578'},
+    {name:'NorOLMo, FinOLMo',org:'HPLT, University of Oslo',srcs:['MegaMath'],q:'MegaMath declared as training data on both model cards.',k:'huggingface.co/HPLT',url:'https://huggingface.co/HPLT/NorOLMo-13B'},
+    {name:'Gaperon',org:'Inria Paris',srcs:['TxT360'],q:'"We selected the CommonCrawl subset from TxT360 as the basis for our English dataset."',k:'arXiv 2510.25771',url:'https://arxiv.org/abs/2510.25771'}
+  ];
+  var svg=document.querySelector('#lin svg'),lin=document.getElementById('lin'),qbox=document.getElementById('q'),list=document.getElementById('linlist');
+  var NS='http://www.w3.org/2000/svg';
+  function el(t,a,txt){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;return e;}
+  var W=980,nodeH=44,gap=8,n=nodes.length,H=n*(nodeH+gap)-gap+40,srcX=40,srcW=170,dstX=600,dstW=340;
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var srcs={'TxT360':{y:H*0.22-36,cls:'b',url:'https://huggingface.co/spaces/LLM360/TxT360'},'MegaMath':{y:H*0.62-36,cls:'a',url:'https://huggingface.co/datasets/LLM360/MegaMath'}};
+  nodes.forEach(function(d,i){d.y=20+i*(nodeH+gap);});
+  nodes.forEach(function(d,i){
+    d.srcs.forEach(function(sn){
+      var s=srcs[sn],y0=s.y+nodeH/2+14,y1=d.y+nodeH/2,x0=srcX+srcW,x1=dstX,mx=(x0+x1)/2;
+      svg.appendChild(el('path',{class:'edge '+s.cls,d:'M'+x0+','+y0+' C'+mx+','+y0+' '+mx+','+y1+' '+x1+','+y1,'data-i':i,'data-src':sn}));
+    });
+  });
+  Object.keys(srcs).forEach(function(k){
+    var s=srcs[k],g=el('g',{class:'node src','data-src':k,tabindex:0,role:'link'});
+    g.addEventListener('click',function(){window.open(s.url,'_blank','noopener')});
+    g.addEventListener('keydown',function(e){if(e.key==='Enter')window.open(s.url,'_blank','noopener')});
+    g.appendChild(el('rect',{x:srcX,y:s.y,width:srcW,height:nodeH+28,rx:2}));
+    g.appendChild(el('text',{x:srcX+14,y:s.y+28},k));
+    g.appendChild(el('text',{x:srcX+14,y:s.y+50,class:'org'},k==='TxT360'?'15T+ tokens, 2024':'371B tokens, 2025'));
+    svg.appendChild(g);
+  });
+  nodes.forEach(function(d,i){
+    var g=el('g',{class:'node dst','data-i':i,tabindex:0});
+    g.appendChild(el('rect',{x:dstX,y:d.y,width:dstW,height:nodeH,rx:2}));
+    g.appendChild(el('text',{x:dstX+14,y:d.y+19},d.name));
+    g.appendChild(el('text',{x:dstX+14,y:d.y+36,class:'org'},d.org));
+    g.addEventListener('mouseenter',function(){on(i)});g.addEventListener('focus',function(){on(i)});
+    g.addEventListener('mouseleave',off);g.addEventListener('blur',off);
+    g.setAttribute('role','link');
+    g.addEventListener('click',function(){window.open(d.url,'_blank','noopener')});
+    g.addEventListener('keydown',function(e){if(e.key==='Enter')window.open(d.url,'_blank','noopener')});
+    svg.appendChild(g);
+    var li=document.createElement('li');
+    li.innerHTML='<b><a href="'+d.url+'">'+d.name+'</a> <span style="font-weight:400;color:var(--ink3)">'+d.org+'</span></b><span>'+d.q+'</span> <span class="k">'+d.srcs.join(' + ')+' · '+d.k+'</span>';
+    list.appendChild(li);
+  });
+  function on(i){
+    lin.classList.add('hover');var d=nodes[i];
+    svg.querySelectorAll('.edge').forEach(function(p){p.classList.toggle('on',p.getAttribute('data-i')==String(i))});
+    svg.querySelectorAll('.dst').forEach(function(g){g.classList.toggle('on',g.getAttribute('data-i')==String(i))});
+    svg.querySelectorAll('.src').forEach(function(g){g.classList.toggle('on',d.srcs.indexOf(g.getAttribute('data-src'))>=0)});
+    qbox.innerHTML='<b>'+d.name+'</b>, '+d.org+': '+d.q+' <span class="k">'+d.srcs.join(' + ')+' · <a href="'+d.url+'">'+d.k+'</a></span>';
+  }
+  function off(){lin.classList.remove('hover');}
+  var em=document.getElementById('em');
+  if(em){em.addEventListener('click',function(e){e.preventDefault();var u=['nikhil','ranjan7'].join(''),h=['gmail','com'].join('.');location.href='mailto:'+u+'@'+h;});}
+})();
+</script>
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var dark=!window.matchMedia('(prefers-color-scheme: light)').matches;
+
+  // headline word reveal
+  var h1=document.querySelector('.hero h1');
+  if(h1&&!rm){
+    var html=h1.innerHTML.replace(/<em>/g,'[[EM]]').replace(/<\/em>/g,'[[/EM]]');
+    var words=html.split(/\s+/),inEm=false,out=[],i=0;
+    words.forEach(function(w){
+      var open=w.indexOf('[[EM]]')>=0,close=w.indexOf('[[/EM]]')>=0;w=w.replace('[[EM]]','').replace('[[/EM]]','');
+      if(open)inEm=true;
+      out.push('<span class="w" style="animation-delay:'+(i*70)+'ms">'+(inEm?'<em>'+w+'</em>':w)+'</span>');
+      if(close)inEm=false;i++;
+    });
+    h1.innerHTML=out.join(' ');
+  }
+
+  // ledger count-up
+  if(!rm){
+    document.querySelectorAll('.ledger b').forEach(function(b){
+      var a=b.querySelector('a')||b,t=a.textContent.trim(),m=t.match(/^([\d.]+)([A-Za-z+]*)$/);if(!m)return;
+      var target=parseFloat(m[1]),suf=m[2],dec=(m[1].split('.')[1]||'').length,t0=null;
+      function step(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/1200),e=1-Math.pow(1-k,3);a.textContent=(target*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(step);else a.textContent=t;}
+      requestAnimationFrame(step);
+    });
+  }
+
+  // scroll reveals
+  var rv=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!rm){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(el){io.observe(el)});
+  }else{rv.forEach(function(el){el.classList.add('in')});}
+
+  // spotlight + photo tilt
+  var spot=document.getElementById('spot'),img=document.querySelector('.hero img');
+  if(!rm&&matchMedia('(pointer:fine)').matches){
+    addEventListener('pointermove',function(e){
+      spot.style.setProperty('--mx',e.clientX+'px');spot.style.setProperty('--my',e.clientY+'px');
+      if(img){var r=img.getBoundingClientRect(),dx=(e.clientX-(r.left+r.width/2))/innerWidth,dy=(e.clientY-(r.top+r.height/2))/innerHeight;
+        img.style.transform='perspective(900px) rotateY('+(dx*6)+'deg) rotateX('+(-dy*6)+'deg) translate3d('+(dx*8)+'px,'+(dy*8)+'px,0)';}
+    },{passive:true});
+  }
+
+  // edge particles in the lineage
+  var svg=document.querySelector('#lin svg');
+  if(svg&&!rm){
+    var NS='http://www.w3.org/2000/svg',edges=Array.prototype.slice.call(svg.querySelectorAll('path.edge')),parts=[];
+    edges.forEach(function(p){
+      var L=p.getTotalLength(),cls=p.classList.contains('b')?'b':'a',n=2;
+      for(var k=0;k<n;k++){var c=document.createElementNS(NS,'circle');c.setAttribute('r','2.6');c.setAttribute('class','p '+cls);svg.appendChild(c);parts.push({c:c,p:p,L:L,t:(k/n)+Math.random()*.3,v:.0016+Math.random()*.0012});}
+    });
+    var lin=document.getElementById('lin');
+    new MutationObserver(function(){var on=lin.classList.contains('hover');parts.forEach(function(q){q.c.classList.toggle('on',on&&q.p.classList.contains('on'));});}).observe(lin,{attributes:true,attributeFilter:['class']});
+    svg.querySelectorAll('.dst').forEach(function(g){g.addEventListener('mouseenter',function(){setTimeout(function(){parts.forEach(function(q){q.c.classList.toggle('on',q.p.classList.contains('on'))})},0)})});
+    (function tickp(){parts.forEach(function(q){q.t+=q.v;if(q.t>1)q.t-=1;var pt=q.p.getPointAtLength(q.t*q.L);q.c.setAttribute('cx',pt.x);q.c.setAttribute('cy',pt.y);});requestAnimationFrame(tickp);})();
+  }
+
+
+  // reach map: equirectangular graticule, arcs from Abu Dhabi
+  var map=document.getElementById('map');
+  if(map){
+    var MNS='http://www.w3.org/2000/svg';
+    function mel(t,a,txt){var e=document.createElementNS(MNS,t);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;return e;}
+    var MW=1000,MH=360,lon0=-130,lon1=150,lat0=68,lat1=8;
+    function proj(lat,lon){return [ (lon-lon0)/(lon1-lon0)*MW, (lat0-lat)/(lat0-lat1)*MH ];}
+    for(var la=lat1;la<=lat0;la+=20){var y=proj(la,0)[1];map.appendChild(mel('line',{x1:0,y1:y,x2:MW,y2:y,class:'grat'+(la===0?' eq':'')}));}
+    for(var lo=-120;lo<=lon1;lo+=30){var x=proj(0,lo)[0];map.appendChild(mel('line',{x1:x,y1:0,x2:x,y2:MH,class:'grat'}));}
+    var O={lat:24.45,lon:54.65,name:'Abu Dhabi'};
+    var cities=[
+      {lat:47.37,lon:8.54,name:'Zurich',who:'Apertus',cls:'a',dy:-12,dx:10},
+      {lat:59.91,lon:10.75,name:'Oslo',who:'NorOLMo',cls:'a',dy:-10},
+      {lat:48.85,lon:2.35,name:'Paris',who:'Gaperon',cls:'b',dy:20,dx:-10,end:true},
+      {lat:47.61,lon:-122.33,name:'Seattle',who:'Olmo 3',cls:'a',dy:-10},
+      {lat:37.35,lon:-121.95,name:'Santa Clara',who:'NVIDIA, AMD',cls:'a',dy:16},
+      {lat:39.90,lon:116.40,name:'Beijing',who:'ByteDance, Microsoft Research',cls:'a',dy:-10},
+      {lat:30.27,lon:120.15,name:'Hangzhou',who:'Alibaba',cls:'a',dy:16}
+    ];
+    var o=proj(O.lat,O.lon),arcs=[];
+    cities.forEach(function(c){
+      var d=proj(c.lat,c.lon),mx=(o[0]+d[0])/2,my=Math.min(o[1],d[1])-Math.abs(d[0]-o[0])*0.22;
+      var path=mel('path',{d:'M'+o[0]+','+o[1]+' Q'+mx+','+my+' '+d[0]+','+d[1],class:'arc '+c.cls});
+      map.appendChild(path);arcs.push({p:path,L:0,t:Math.random()});
+    });
+    cities.forEach(function(c){
+      var d=proj(c.lat,c.lon);
+      map.appendChild(mel('circle',{cx:d[0],cy:d[1],r:4,class:'halo '+c.cls,style:'animation-delay:'+(Math.random()*2.8)+'s'}));
+      map.appendChild(mel('circle',{cx:d[0],cy:d[1],r:3,class:'pt '+c.cls}));
+      var anchor=(c.end||d[0]>MW*0.75)?'end':'start',tx=d[0]+(c.dx!=null?c.dx:(anchor==='end'?-8:8));
+      map.appendChild(mel('text',{x:tx,y:d[1]+c.dy,'text-anchor':anchor},c.name+' · '+c.who));
+    });
+    map.appendChild(mel('circle',{cx:o[0],cy:o[1],r:5,class:'origin'}));
+    map.appendChild(mel('text',{x:o[0]+9,y:o[1]+18,class:'o'},'Abu Dhabi · MBZUAI IFM'));
+    if(!rm){
+      var pulses=arcs.map(function(a){a.L=a.p.getTotalLength();var c=mel('circle',{r:2.4,class:'pulse'});map.appendChild(c);return {a:a,c:c,t:Math.random(),v:.0025+Math.random()*.002};});
+      (function tickm(){pulses.forEach(function(q){q.t+=q.v;if(q.t>1)q.t=0;var pt=q.a.p.getPointAtLength(q.t*q.a.L);q.c.setAttribute('cx',pt.x);q.c.setAttribute('cy',pt.y);q.c.setAttribute('opacity',String(1-q.t*.7));});requestAnimationFrame(tickm);})();
+    }
+  }
+
+  // glyph flow field: glyphs drift along a noise field, left to right, like data moving into a model
+  var c=document.getElementById('field');if(!c||rm)return;
+  var ctx=c.getContext('2d'),W,H,pts=[],G='0123456789∑∫π√∞≈≠≤≥∂∆λθ{}[]<>=+-×/'.split('');
+  function size(){W=c.width=innerWidth*devicePixelRatio;H=c.height=innerHeight*devicePixelRatio;c.style.width=innerWidth+'px';c.style.height=innerHeight+'px';}
+  size();addEventListener('resize',size);
+  var N=Math.min(110,Math.floor(innerWidth/12));
+  function seed(p){p.x=Math.random()*-.1;p.y=Math.random();p.g=G[Math.floor(Math.random()*G.length)];p.s=9+Math.random()*9;p.o=.06+Math.random()*.16;p.v=.0009+Math.random()*.0012;return p;}
+  for(var i=0;i<N;i++){var q=seed({});q.x=Math.random();pts.push(q);}
+  var t=0;
+  function field(x,y,t){return Math.sin(y*5.1+t*.6)*Math.cos(x*3.7-t*.4)*0.55+Math.sin((x+y)*2.3+t*.3)*0.45;}
+  function draw(){
+    t+=.006;ctx.clearRect(0,0,W,H);var dpr=devicePixelRatio;
+    pts.forEach(function(p){
+      var a=field(p.x,p.y,t);p.x+=p.v*(1+.3*Math.cos(a));p.y+=Math.sin(a)*p.v*.9;
+      if(p.x>1.05||p.y<-.05||p.y>1.05)seed(p);
+      var fade=Math.min(1,(1.05-p.x)*4)*Math.min(1,(p.x+.1)*6);
+      ctx.globalAlpha=p.o*fade;ctx.fillStyle=dark?'#9DB4FF':'#2B5BE3';ctx.font=(p.s*dpr)+'px JetBrains Mono, monospace';
+      ctx.fillText(p.g,p.x*W,p.y*H);
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
